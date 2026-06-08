@@ -1,5 +1,6 @@
 # GTAV-Online-MOD-MENU-Game-Crash-Protection
 This application was explicitly designed to intercept the outgoing packets in GTA V Online that trigger the game-crash exploit currently being abused by cheaters and modders.
+This script was created with the help of ChatGPT—thanks to a truly professional AI that sped up the process significantly.
 
 To run, this script requires the following additional components: python3, WinDivert, and npcap.
 
