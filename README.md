@@ -1,4 +1,17 @@
 # GTAV-Online-MOD-MENU-Game-Crash-Protection
+
+---------------------------------------------------------------------------
+How this project came about: 
+For quite some time, a large number of players have noticed a massive increase in game crashes, session kicks, and unexpected teleports.
+This is simply because the game uses a P2P connection, which opens up the possibility for *anyone* to manipulate data packets at the game level.
+Through an analysis spanning at least several weeks, I determined that all game crashes, session kicks, or unexpected BattlEye kicks were triggered in an unnatural manner.
+Furthermore, it is very easy for the user of this type of mod menu to track down IP addresses, Rockstar IDs, and associated accounts.
+This makes it very easy for the modder to stalk a player and harass them for days or even weeks or months. 
+Since these incidents have increased dramatically, I have started looking for a way to build up at least some immunity against these game crashes. Unfortunately, using a VPN does not help those affected, the packets sent by the mod menu usually go directly to the player or are routed via the relay. 
+Protecting oneself 100% against this would therefore also require significant interventions on the part of the game operators.
+It is important to inform as many players as possible about this and to offer them the opportunity to take action against this type of oppression.
+---------------------------------------------------------------------------
+
 This application was explicitly designed to intercept the outgoing packets in GTA V Online that trigger the game-crash exploit currently being abused by cheaters and modders.
 This script was created with the help of ChatGPT—thanks to a truly professional AI that sped up the process significantly.
 
