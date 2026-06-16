@@ -3,9 +3,6 @@
 import pydivert
 
 RELAY={"185.56.65.167","185.56.65.168","185.56.65.169","185.56.65.170","185.56.65.171","185.56.65.172"}
-
-MY_IP=""
-
 FILTER=("udp and ("
 	"(outbound and udp.DstPort == 61456) or "
 	"(inbound and udp.SrcPort == 61456 and udp.DstPort == 6672)"
