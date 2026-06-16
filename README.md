@@ -30,6 +30,6 @@ This script is in the beta phase and will undergo further development over time.
 
 Unfortunately, cheaters/modders can still boot you into empty lobbies or kick you out of the session. I am already working on putting a stop to that as well.
 
-This script is clean. there are no risks for you.
+This script does not modify GTA V files and only filters selected network packets locally. However, incorrect filtering may still cause connection issues or empty sessions.
 
 Best regards, BlackEndless :)
