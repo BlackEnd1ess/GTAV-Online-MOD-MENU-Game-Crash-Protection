@@ -19,7 +19,7 @@ It is important to inform as many players as possible about this and to offer th
 ---------------------------------------------------------------------------
 
 This application was explicitly designed to intercept the outgoing packets in GTA V Online that trigger the game-crash exploit currently being abused by cheaters and modders.
-This script was created with the help of ChatGPT—thanks to a truly professional AI that sped up the process significantly.
+This script was created with the help of ChatGPT, thanks to a truly professional AI that sped up the process significantly.
 
 To run, this script requires the following additional components: python3, WinDivert, and npcap.
 
