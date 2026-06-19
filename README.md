@@ -5,7 +5,7 @@
 # This means that peering between you and the player is prevented, and all data traffic is routed via a relay.
 # This makes it more difficult for the modder/cheater to route spoofed or faked logout/crash packets through the players.
 # A disadvantage is that this could lead to increased latency and possibly longer loading times.
-
+# This script can be used in conjunction with a VPN to ensure protection for every network interface. If the script does not work or you prefer not to use it, you have the option of blocking incoming port 6672 for all # # participants, however, the protection rule will no longer apply when using the VPN.
 ---------------------------------------------------------------------------
 How this project came about: 
 For quite some time, a large number of players have noticed a massive increase in game crashes, session kicks, and unexpected teleports.
