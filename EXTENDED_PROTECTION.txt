@@ -1,0 +1,30 @@
+In case you keep getting booted offline despite using this script, you have the option to completely block 
+direct communication between players and route everything through a relay. 
+
+To do this, you need to add the following rules to the Windows Firewall:
+
+Inbound connections:
+- Protocols and ports = UDP and all local and remote ports
+- programs and services: GTA5_Enchaned.exe/GTA5_legacy.exe
+- action: BLOCK
+
+Outbound connections:
+- Protocols and ports = UDP and all local and remote ports
+- programs and services: GTA5_Enchaned.exe/GTA5_legacy.exe
+- ip range: 
+--- remote_ip 0.0.0.0-185.56.65.166
+--- remote_ip 185.56.65.173-255.255.255.254
+- action: BLOCK
+
+Once this rule is set, all GTA Online traffic is forced through the relay.
+Unfortunately, this can result in some latency or longer wait times.
+You are no longer visible to other participants in the Social Club, 
+so friends must be invited manually.
+
+If you want to use the firewall in combination with the script, I recommend the "vanilla" version.
+It focuses on outbound connections and blocks one of the known crash-inducing packets.
+If you continue to experience connection drops, it is advisable to look for a session with fewer players.
+
+Of course, this method does not provide 100% security, as it remains possible for an attacker to transmit spoofed relay packets, 
+nevertheless, it significantly hinders common and well-known attack methods and increases the effort and cost for the attacker.
+
