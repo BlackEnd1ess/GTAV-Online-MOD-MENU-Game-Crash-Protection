@@ -1,45 +1,154 @@
-# GTAV-Online-MOD-MENU-Game-Crash-Protection
+# GTAV Online NetShield – Experimental Network Protection
 
-# GTAV_NetShield_SUPERSTRICT -> (27.06.2026): If you decide to adopt the method of blocking everything and allowing only outbound traffic to the relays, I recommend using the "superstrict" variant I have provided for this purpose. It allows you to see whether you are currently communicating with the relay or if a loss of connectivity might be imminent. Please note that this method is very unstable, so you shouldn't stray too far from the other players, as you might end up out of communication range. This method should not be used as a permanent setting for gameplay, but only as a temporary protective shield.
+## Overview
 
-# V2.0 -> (18.06.2026) UPDATE!
-by enable RELAY_ONLY you can probaly hide you IP behind Rockstars relay-servers and force NAT type to STRICT.
-This means that peering between you and the player is prevented, and all data traffic is routed via a relay.
-This makes it more difficult for the modder/cheater to route spoofed or faked logout/crash packets through the players.
-A disadvantage is that this could lead to increased latency and possibly longer loading times.
-This script can be used in conjunction with a VPN to ensure protection for every network interface. 
-If the script does not work or you prefer not to use it, you have the option of blocking incoming port 6672 for all 
-participants, however,the protection rule will no longer apply when using the VPN.#
----------------------------------------------------------------------------
-How this project came about: 
-For quite some time, a large number of players have noticed a massive increase in game crashes, session kicks, and unexpected teleports.
-This is simply because the game uses a P2P connection, which opens up the possibility for *anyone* to manipulate data packets at the game level.
-Through an analysis spanning at least several weeks, I determined that all game crashes, session kicks, or unexpected BattlEye kicks were triggered in an unnatural manner.
-Furthermore, it is very easy for the user of this type of mod menu to track down IP addresses, Rockstar IDs, and associated accounts.
-This makes it very easy for the modder to stalk a player and harass them for days or even weeks or months. 
-Since these incidents have increased dramatically, I have started looking for a way to build up at least some immunity against these game crashes. Unfortunately, using a VPN does not help those affected, the packets sent by the mod menu usually go directly to the player or are routed via the relay. 
-Protecting oneself 100% against this would therefore also require significant interventions on the part of the game operators.
-It is important to inform as many players as possible about this and to offer them the opportunity to take action against this type of oppression.
----------------------------------------------------------------------------
+GTAV Online NetShield is an experimental network filtering project designed to reduce the impact of certain network-based attacks that have been observed in GTA Online public sessions.
 
-This application was explicitly designed to intercept the outgoing packets in GTA V Online that trigger the game-crash exploit currently being abused by cheaters and modders.
-This script was created with the help of ChatGPT, thanks to a truly professional AI that sped up the process significantly.
+The project combines Windows Firewall rules with WinDivert packet filtering to limit direct peer-to-peer communication while allowing Rockstar relay traffic to continue whenever possible.
 
-To run, this script requires the following additional components: python3, WinDivert, and npcap.
+**This project does not modify GTA V files, memory, or executable code.** It only filters selected network packets locally on the user's computer.
 
-1. download and install https://github.com/basil00/WinDivert/releases the latest WinDivert.
-2. Make sure the following files are located in the apllication python folder or in the same folder as the script: WinDivert.dll, WinDivert64.dll, WinDivert.sys, WinDivert64.sys.
-3. install pydivert: pip install pydivert
+---
 
-You could potentially create a batch file for this that you can run as an administrator, since this tool requires admin rights to access your network interface.
-This tool/analysis tool has no impact on BattlEye or anti-cheat systems in general and can therefore be used without concern.
+# Latest Updates
 
-Potential downsides: activating the blocking feature might cause you to block legitimate traffic (though the likelihood of this is low). This could result in you ending up in a sparsely populated or completely empty session, but the modder will no longer be able to terminate your game.
+## GTAV NetShield SUPERSTRICT (27.06.2026)
 
-This script is in the beta phase and will undergo further development over time. If connection problems occur after it has been running for an extended period, ensure that the process is terminated via the Task Manager; everything should then function normally again.
+The **SUPERSTRICT** profile is intended as an emergency protection mode.
 
-Unfortunately, cheaters/modders can still boot you into empty lobbies or kick you out of the session. I am already working on putting a stop to that as well.
+When combined with the recommended Windows Firewall rules, direct player-to-player communication is heavily restricted and network traffic is routed primarily through Rockstar's relay servers.
 
-This script does not modify GTA V files and only filters selected network packets locally. However, incorrect filtering may still cause connection issues or empty sessions.
+The included relay monitor displays the current relay status:
 
-Best regards, BlackEndless :)
+* 🟢 Green – Relay traffic is active.
+* 🟡 Yellow – No relay traffic has been detected for several seconds.
+* 🔴 Red – Relay communication appears to have stopped and a disconnect may be imminent.
+
+This mode is intentionally restrictive and should only be used temporarily if you are repeatedly targeted by disruptive players.
+
+Known limitations:
+
+* Increased latency may occur.
+* Long loading times are possible.
+* Travelling very far away from other players may eventually result in a disconnect.
+* Synchronization quality may be reduced in some situations.
+
+---
+
+## Version 2.0 (18.06.2026)
+
+The RELAY_ONLY mode attempts to allow communication only with Rockstar relay servers while preventing direct peer communication wherever possible.
+
+During testing this resulted in:
+
+* Reduced direct peer connectivity.
+* Relay traffic remaining active.
+* Public sessions remaining playable.
+* Increased difficulty for repeated spoofed packet attempts to reach the client.
+
+This behaviour is experimental and may vary depending on session conditions.
+
+---
+
+# Why this project exists
+
+Over the past months many GTA Online players have reported an increase in:
+
+* Unexpected game crashes
+* Session kicks
+* Forced disconnects
+* Unwanted teleports
+* Persistent harassment by players using third-party modifications
+
+This project originated from several weeks of analysing GTA Online network traffic in an attempt to better understand these behaviours and investigate possible mitigation techniques.
+
+Some network patterns repeatedly appeared during testing before or during disruptive events. NetShield was created to experimentally filter selected traffic while preserving normal gameplay as much as possible.
+
+Because GTA Online networking is largely controlled by the game itself, complete protection cannot be guaranteed.
+
+---
+
+# Features
+
+* WinDivert-based outbound packet filtering
+* Optional RELAY_ONLY firewall configuration
+* Experimental SUPERSTRICT protection mode
+* Relay activity monitor
+* Configurable packet filtering rules
+* No modification of GTA V files
+
+---
+
+# Requirements
+
+* Python 3
+* WinDivert
+* pydivert
+* Npcap (recommended)
+
+Installation:
+
+1. Install the latest WinDivert release.
+2. Copy the required WinDivert DLL and SYS files into the Python directory or the script directory.
+3. Install pydivert:
+
+```bash
+pip install pydivert
+```
+
+Administrator privileges are required because WinDivert must access the network stack.
+
+---
+
+# Firewall Configuration
+
+The repository also contains optional Windows Firewall configurations.
+
+Depending on the selected profile these rules can:
+
+* Block inbound GTA Online peer traffic.
+* Restrict outbound communication to Rockstar relay servers.
+* Reduce direct exposure to peer-to-peer connections.
+
+These configurations are optional and should be tested carefully before regular gameplay.
+
+---
+
+# Known Limitations
+
+This project is experimental.
+
+Possible side effects include:
+
+* Higher latency
+* Temporary desynchronization
+* Empty or sparsely populated sessions
+* Host migration issues
+* Disconnects after long periods without relay traffic
+* Reduced Social Club visibility depending on firewall configuration
+
+Behaviour may vary depending on Rockstar server infrastructure and future game updates.
+
+---
+
+# Disclaimer
+
+This software is provided for educational and research purposes.
+
+It does not bypass, modify or interfere with BattlEye or GTA V game files.
+
+Incorrect firewall or filtering rules may negatively affect network connectivity.
+
+No guarantee is made that the project prevents every network-based attack or disruptive behaviour.
+
+---
+
+# Acknowledgements
+
+Parts of this project were developed with assistance from ChatGPT, which significantly accelerated research, testing and documentation.
+
+---
+
+Best regards,
+
+**BlackEndless**
