@@ -1,5 +1,7 @@
 # GTAV-Online-MOD-MENU-Game-Crash-Protection
 
+# GTAV_NetShield_SUPERSTRICT -> (27.06.2026): If you decide to adopt the method of blocking everything and allowing only outbound traffic to the relays, I recommend using the "superstrict" variant I have provided for this purpose. It allows you to see whether you are currently communicating with the relay or if a loss of connectivity might be imminent. Please note that this method is very unstable, so you shouldn't stray too far from the other players, as you might end up out of communication range. This method should not be used as a permanent setting for gameplay, but only as a temporary protective shield.
+
 # V2.0 -> (18.06.2026) UPDATE!
 by enable RELAY_ONLY you can probaly hide you IP behind Rockstars relay-servers and force NAT type to STRICT.
 This means that peering between you and the player is prevented, and all data traffic is routed via a relay.
