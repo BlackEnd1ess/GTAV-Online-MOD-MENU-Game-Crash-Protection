@@ -12,6 +12,9 @@ The project combines Windows Firewall rules with WinDivert packet filtering to l
 
 # Latest Updates
 
+## GTAV NetShield MGR OUT (08.07.2026)
+The NetShield_MGR_OUT is an alternative for users who have completely blocked inbound packets but still wish to filter and analyze outgoing packets destined for players and relays.
+
 ## GTAV NetShield SUPERSTRICT (27.06.2026)
 
 The **SUPERSTRICT** profile is intended as an emergency protection mode.
