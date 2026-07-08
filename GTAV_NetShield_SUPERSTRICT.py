@@ -1,4 +1,4 @@
-##info: check custom rules or create your own
+##info: Before using the script, ensure that the firewall rules are set as described in EXTENDED_PROTECTION.txt
 from colorama import init,Fore,Style
 import time,pydivert,threading,os
 from datetime import datetime
@@ -10,8 +10,8 @@ PASS_LOG=False
 WINDOW_SECONDS=60
 MAX_RELAY=3
 
-CONNECT_WARNING=3
-CONNECT_CRITICAL=9
+CONNECT_WARNING=2
+CONNECT_CRITICAL=5
 
 relay_hits=[]
 last_relay_out=time.time()
